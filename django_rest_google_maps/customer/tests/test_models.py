@@ -2,7 +2,7 @@ from django.test import TestCase
 import string
 from random import choice, randint
 from model_bakery import baker
-from ..models import (
+from django_rest_google_maps.customer.models import (
     City, Company, Customer, Occupation, State
 )
 
