@@ -24,6 +24,8 @@ class State(models.Model):
 class City(models.Model):
     state = models.ForeignKey(State, models.DO_NOTHING, related_name="state")
     name = models.CharField(max_length=100)
+    latitude = models.DecimalField(max_digits=22, decimal_places=16, blank=True, null=True)
+    longitude = models.DecimalField(max_digits=22, decimal_places=16, blank=True, null=True)
 
     class Meta:
         ordering = ["name"]

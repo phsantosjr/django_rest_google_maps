@@ -6,7 +6,7 @@ from decouple import Csv
 from dj_database_url import parse as dburl
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = config("SECRET_KEY")
 DEBUG = config("DEBUG", default=False, cast=bool)
@@ -170,3 +170,5 @@ if DEBUG:
         },
         "root": {"level": "INFO", "handlers": ["console"]},
     }
+
+GOOGLE_MAPS_API_KEY = config("GOOGLE_MAPS_API_KEY")
