@@ -1,6 +1,5 @@
 from django.apps import AppConfig
 
 
-# class CustomerConfig(AppConfig):
-#     default_auto_field = 'django.db.models.BigAutoField'
-#     name = 'customer'
+class CustomerConfig(AppConfig):
+    name = "django_rest_google_maps.customer"

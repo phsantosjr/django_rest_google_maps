@@ -4,28 +4,28 @@
 ![](https://img.shields.io/badge/DjangoRestFramework-3.12.2-blue.svg)
 
 
-## Create a virtual enviroment
+#### Create a virtual enviroment
 
 
-## Create your .env file
+#### Create your .env file
 
 Copy file .env_sample as .env and put your information ins this new file
 
 
-## Install requirements
+#### Install requirements
 
 ```
 pip install -r requirements.txt
 ```
 
 
-## Running Migrations
+#### Running Migrations
 
 ```
 python manage.py migrate
 ```
 
-## Running Tests
+#### Running Tests
 
 ```
 python manage.py test
@@ -36,4 +36,12 @@ Running Coverage
 ```
 coverage run --source='.' manage.py test
 coverage html
+```
+
+#### Loading Customer Data
+
+Be sure that the file is in folder contrib.
+
+```
+python manage.py load_csv customer.csv
 ```

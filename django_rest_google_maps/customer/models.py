@@ -1,5 +1,11 @@
 from django.db import models
 
+GENDERS = (
+    (1, "Female"),
+    (2, "Male"),
+    (3, "NA")
+)
+
 
 class Occupation(models.Model):
     name = models.CharField(max_length=100)
@@ -28,7 +34,7 @@ class City(models.Model):
     longitude = models.DecimalField(max_digits=22, decimal_places=16, blank=True, null=True)
 
     class Meta:
-        ordering = ["name"]
+        ordering = ["state", "name"]
 
     def __str__(self):
         return f"{self.name} - {self.state.initials}"
@@ -45,17 +51,13 @@ class Company(models.Model):
 
 
 class Customer(models.Model):
-    GENDERS = (
-        (1, "Female"),
-        (2, "Male"),
-    )
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100, null=True, blank=True)
     email = models.EmailField()
     gender = models.IntegerField(choices=GENDERS, default=1)
     company = models.ForeignKey(Company, models.DO_NOTHING, related_name="company")
-    occupation = models.ForeignKey(Occupation, models.DO_NOTHING, related_name="occupation")
-    city = models.ForeignKey(City, models.DO_NOTHING, related_name="city")
+    occupation = models.ForeignKey(Occupation, models.DO_NOTHING, related_name="occupation", null=True, blank=True)
+    city = models.ForeignKey(City, models.DO_NOTHING, related_name="city", null=True, blank=True)
 
     class Meta:
         ordering = ["id"]
