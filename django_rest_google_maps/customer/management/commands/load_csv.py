@@ -1,6 +1,6 @@
+import os
 import csv
 from django.core.management import BaseCommand
-from django.utils import timezone
 from django_rest_google_maps.customer.models import (
     City, Company, Customer, Occupation, State, GENDERS
 )
@@ -16,7 +16,6 @@ class Command(BaseCommand):
         parser.add_argument("file", type=str)
 
     def handle(self, *args, **options):
-        start_time = timezone.now()
         file = options["file"]
         file_path = settings.BASE_DIR / FOLDER_IMPORT / file
 
@@ -25,7 +24,10 @@ class Command(BaseCommand):
                 data = list(csv.reader(csv_file, delimiter=","))
 
                 for row in data[1:]:
+                    os.system('clear')
+                    print("Now we are loading this data below:")
                     print(row)
+
                     customer_id = row[0]
                     gender = self._get_gender_id(row[4])
                     company = Company.objects.get_or_create(name=row[5])
@@ -47,10 +49,9 @@ class Command(BaseCommand):
                         city=city[0] or None,
                         occupation=occupation[0]
                     )
-            end_time = timezone.now()
             self.stdout.write(
                 self.style.SUCCESS(
-                    f"Loading CSV took: {(end_time-start_time).total_seconds()} seconds."
+                    f"Loading CSV was finished !"
                 )
             )
 

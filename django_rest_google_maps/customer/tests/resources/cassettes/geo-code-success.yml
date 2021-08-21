@@ -1,0 +1,115 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.18.4]
+    method: GET
+    uri: https://maps.googleapis.com/maps/api/geocode/json?address=Av Paulista, 2000, São Paulo, SP&key=google_key
+  response:
+    body: {string: '{
+            "results": [
+              {
+                "address_components": [
+                  {
+                    "long_name": "2000",
+                    "short_name": "2000",
+                    "types": [
+                      "street_number"
+                    ]
+                  },
+                  {
+                    "long_name": "Avenida Paulista",
+                    "short_name": "Av. Paulista",
+                    "types": [
+                      "route"
+                    ]
+                  },
+                  {
+                    "long_name": "Bela Vista",
+                    "short_name": "Bela Vista",
+                    "types": [
+                      "political",
+                      "sublocality",
+                      "sublocality_level_1"
+                    ]
+                  },
+                  {
+                    "long_name": "São Paulo",
+                    "short_name": "São Paulo",
+                    "types": [
+                      "administrative_area_level_2",
+                      "political"
+                    ]
+                  },
+                  {
+                    "long_name": "São Paulo",
+                    "short_name": "SP",
+                    "types": [
+                      "administrative_area_level_1",
+                      "political"
+                    ]
+                  },
+                  {
+                    "long_name": "Brazil",
+                    "short_name": "BR",
+                    "types": [
+                      "country",
+                      "political"
+                    ]
+                  },
+                  {
+                    "long_name": "01310-200",
+                    "short_name": "01310-200",
+                    "types": [
+                      "postal_code"
+                    ]
+                  }
+                ],
+                "formatted_address": "Av. Paulista, 2000 - Bela Vista, São Paulo - SP, 01310-200, Brazil",
+                "geometry": {
+                  "bounds": {
+                    "northeast": {
+                      "lat": -23.5586682,
+                      "lng": -46.6587185
+                    },
+                    "southwest": {
+                      "lat": -23.5589816,
+                      "lng": -46.6590198
+                    }
+                  },
+                  "location": {
+                    "lat": -23.5588414,
+                    "lng": -46.6588714
+                  },
+                  "location_type": "ROOFTOP",
+                  "viewport": {
+                    "northeast": {
+                      "lat": -23.55747591970849,
+                      "lng": -46.6575201697085
+                    },
+                    "southwest": {
+                      "lat": -23.5601738802915,
+                      "lng": -46.6602181302915
+                    }
+                  }
+                },
+                "place_id": "ChIJO6EOBs1ZzpQRwuaEl51eU3w",
+                "types": [
+                  "premise"
+                ]
+              }
+            ],
+            "status": "OK"
+          }'}
+    headers:
+      Connection: [close]
+      Content-Length: ['503']
+      Content-Type: [text/html; charset=utf-8]
+      Date: ['Fri, 17 Jul 2020 18:01:48 GMT']
+      ETag: ['"5db6f899-1f7"']
+      Server: [nginx/1.18.0]
+      Strict-Transport-Security: [max-age=63072000]
+    status: {code: 200, message: OK}
