@@ -1,4 +1,4 @@
-from django.test import SimpleTestCase
+from django.test import SimpleTestCase, override_settings
 from vcr import VCR
 
 from ..maps import get_latitude_longitude_google
@@ -12,8 +12,8 @@ vcr = VCR(
 )
 
 
+@override_settings(GOOGLE_MAPS_API_KEY="google_key")
 class GoogleMapsGeoCodingTestCase(SimpleTestCase):
-
     @vcr.use_cassette("django_rest_google_maps/customer/tests/resources/cassettes/geo-code-success.yml")
     def test_return_geo_coding_success(self):
         address = "Av Paulista, 2000, São Paulo, SP"

@@ -113,3 +113,89 @@ interactions:
       Server: [nginx/1.18.0]
       Strict-Transport-Security: [max-age=63072000]
     status: {code: 200, message: OK}
+
+- request:
+    body: null
+    headers:
+      Accept: [ '*/*' ]
+      Accept-Encoding: [ 'gzip, deflate' ]
+      Connection: [ keep-alive ]
+      User-Agent: [ python-requests/2.18.4 ]
+    method: GET
+    uri: https://maps.googleapis.com/maps/api/geocode/json?address=Santos, SP&key=google_key
+  response:
+    body: { string: '{
+        "results": [
+          {
+            "address_components": [
+              {
+                "long_name": "Santos",
+                "short_name": "Santos",
+                "types": [
+                  "administrative_area_level_2",
+                  "political"
+                ]
+              },
+              {
+                "long_name": "State of São Paulo",
+                "short_name": "SP",
+                "types": [
+                  "administrative_area_level_1",
+                  "political"
+                ]
+              },
+              {
+                "long_name": "Brazil",
+                "short_name": "BR",
+                "types": [
+                  "country",
+                  "political"
+                ]
+              }
+            ],
+            "formatted_address": "Santos - State of São Paulo, Brazil",
+            "geometry": {
+              "bounds": {
+                "northeast": {
+                  "lat": -23.735251,
+                  "lng": -46.16055069999999
+                },
+                "southwest": {
+                  "lat": -24.3313187,
+                  "lng": -46.4030669
+                }
+              },
+              "location": {
+                "lat": -23.9592201,
+                "lng": -46.3317787
+              },
+              "location_type": "APPROXIMATE",
+              "viewport": {
+                "northeast": {
+                  "lat": -23.735251,
+                  "lng": -46.16055069999999
+                },
+                "southwest": {
+                  "lat": -24.3313187,
+                  "lng": -46.4030669
+                }
+              }
+            },
+            "place_id": "ChIJb4XHfLkDzpQRRrxLsAfl8z8",
+            "types": [
+              "administrative_area_level_2",
+              "political"
+            ]
+          }
+        ],
+        "status": "OK"
+      }' }
+    headers:
+      Connection: [ close ]
+      Content-Length: [ '503' ]
+      Content-Type: [ text/html; charset=utf-8 ]
+      Date: [ 'Fri, 17 Jul 2020 18:01:48 GMT' ]
+      ETag: [ '"5db6f899-1f7"' ]
+      Server: [ nginx/1.18.0 ]
+      Strict-Transport-Security: [ max-age=63072000 ]
+    status: { code: 200, message: OK }

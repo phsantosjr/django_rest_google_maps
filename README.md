@@ -4,7 +4,18 @@
 ![](https://img.shields.io/badge/DjangoRestFramework-3.12.2-blue.svg)
 
 
-#### Create a virtual enviroment
+### How to run
+1. Create a virtual environment with Python 3.8.x
+2. Activate virtualenv.
+3. Create your .env file
+4. Install dependencies
+5. Run migrations
+6. Run tests
+7. Start server
+8. Run command line to import data
+
+
+#### Create a virtual environment
 
 
 #### Create your .env file
@@ -12,7 +23,7 @@
 Copy file .env_sample as .env and put your information ins this new file
 
 
-#### Install requirements
+#### Install dependencies
 
 ```
 pip install -r requirements.txt
@@ -35,6 +46,9 @@ Running Coverage
 
 ```
 coverage run --source='.' manage.py test
+```
+To create HTML Coverage report
+```
 coverage html
 ```
 
@@ -46,6 +60,17 @@ Be sure that the file is in folder contrib.
 python manage.py load_csv customer.csv
 ```
 
+
+#### How to start server
+
+Open a terminal and type this code. The terminal must be in the folder where file ```manage.py``` is.
+```
+python manage.py runserver 0.0.0.0:8000
+```
+
+#### How to access Swagger Documentation
+
+Open a browser in this url: ```http://0.0.0.0:8000```
 
 #### Authentication
 

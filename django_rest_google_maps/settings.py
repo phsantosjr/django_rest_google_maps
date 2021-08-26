@@ -23,7 +23,8 @@ INSTALLED_APPS = [
 EXTRA_APPS = [
     "rest_framework",
     "rest_framework.authtoken",
-    "corsheaders"
+    "corsheaders",
+    "drf_yasg",
 ]
 PROJECT_APPS = [
     "django_rest_google_maps.customer",
@@ -123,6 +124,7 @@ REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [],
     "DEFAULT_PERMISSION_CLASSES": [],
     "DEFAULT_FILTER_BACKENDS": ["django_filters.rest_framework.DjangoFilterBackend"],
+    "COERCE_DECIMAL_TO_STRING": False
 }
 
 CORS_ORIGIN_ALLOW_ALL = True

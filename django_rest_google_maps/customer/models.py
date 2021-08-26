@@ -1,10 +1,10 @@
 from django.db import models
 
-GENDERS = (
-    (1, "Female"),
-    (2, "Male"),
-    (3, "NA")
-)
+
+class Genders(models.IntegerChoices):
+    FEMALE = (1, "Female")
+    MALE = (2, "Male")
+    NA = (3, "NA")
 
 
 class Occupation(models.Model):
@@ -54,7 +54,7 @@ class Customer(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100, null=True, blank=True)
     email = models.EmailField()
-    gender = models.IntegerField(choices=GENDERS, default=1)
+    gender = models.PositiveSmallIntegerField(choices=Genders.choices, default=Genders.FEMALE)
     company = models.ForeignKey(Company, models.DO_NOTHING, related_name="company")
     occupation = models.ForeignKey(Occupation, models.DO_NOTHING, related_name="occupation", null=True, blank=True)
     city = models.ForeignKey(City, models.DO_NOTHING, related_name="city", null=True, blank=True)

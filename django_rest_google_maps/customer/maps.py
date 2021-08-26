@@ -1,12 +1,10 @@
 import requests
 from django.conf import settings
 
-GOOGLE_MAPS_API_KEY = settings.GOOGLE_MAPS_API_KEY
-
 
 def get_latitude_longitude_google(address: str) -> tuple:
     response = requests.get(
-        f"https://maps.googleapis.com/maps/api/geocode/json?address={address}&key={GOOGLE_MAPS_API_KEY}"
+        f"https://maps.googleapis.com/maps/api/geocode/json?address={address}&key={settings.GOOGLE_MAPS_API_KEY}"
     )
     response_dict = response.json()
 

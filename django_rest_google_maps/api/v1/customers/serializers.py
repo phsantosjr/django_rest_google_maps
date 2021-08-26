@@ -4,6 +4,7 @@ from django_rest_google_maps.customer.models import (
     City,
     Company,
     Customer,
+    Genders,
     Occupation,
     State,
 )
@@ -39,6 +40,7 @@ class CustomerSerializer(serializers.ModelSerializer):
     company = CompanySerializer()
     occupation = OccupationSerializer(required=False)
     city = CitySerializer(required=False)
+    gender = serializers.SerializerMethodField()
 
     class Meta:
         model = Customer
@@ -52,3 +54,7 @@ class CustomerSerializer(serializers.ModelSerializer):
             "occupation",
             "city",
         ]
+
+    def get_gender(self, obj):
+        return obj.get_gender_display()
+
