@@ -12,6 +12,7 @@ from django_rest_google_maps.customer.tests.test_base import (
     get_random_email,
     get_random_string,
 )
+from django_rest_google_maps.customer.models import Genders
 
 
 class StateSerializerTest(TestCase):
@@ -84,7 +85,7 @@ class CustomerSerializerTest(TestCase):
             "Customer",
             first_name=get_random_string(50),
             email=get_random_email(10),
-            gender=1,
+            gender=Genders.FEMALE,
             occupation=occupation,
             city=city,
             _fill_optional=True,
@@ -112,7 +113,7 @@ class CustomerSerializerTest(TestCase):
         self.assertEqual(data["first_name"], self.customer.first_name)
         self.assertEqual(data["last_name"], self.customer.last_name)
         self.assertEqual(data["email"], self.customer.email)
-        self.assertEqual(data["gender"], self.customer.gender)
+        self.assertEqual(data["gender"], Genders.FEMALE.label)
         self.assertEqual(data["company"]["name"], self.customer.company.name)
         self.assertEqual(data["occupation"]["name"], self.customer.occupation.name)
         self.assertEqual(data["city"]["name"], self.customer.city.name)

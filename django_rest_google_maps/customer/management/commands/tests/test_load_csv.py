@@ -2,7 +2,7 @@ from django.test import SimpleTestCase, override_settings
 from vcr import VCR
 
 from ..load_csv import FOLDER_IMPORT, Command
-from django_rest_google_maps.customer.models import GENDERS
+from django_rest_google_maps.customer.models import Genders
 
 
 vcr = VCR(
